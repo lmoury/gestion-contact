@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Gestion de contact</title>
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+			<a class="navbar-brand" href="index.html">Gestion des contacts</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item active">
+						<a class="nav-link" href="#" onclick="listeContact()">Liste des contacts</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" onclick="ajouterContact()">Ajouter un contact</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+    <br/>
+	<div class="container">
+
+		<!-- liste des contacts -->
+		<div id="contact" class="row detail-page">
+			<div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Rechercher</span>
+                    </div>
+                    <input class="form-control" id="search" type="text" placeholder="Rechercher un contact...">
+                </div>
+				<table class="table table-bordered table-striped table-hover table-responsive text-center">
+					<thead>
+						<tr>
+							<th scope="col">Nom</th>
+							<th scope="col">Prenom</th>
+							<th scope="col">Numero</th>
+                            <th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody id="myTable"></tbody>
+				</table>
+			</div>
+		</div>
+
+        <!-- //modifier ou ajouter contact -->
+		<form id="contact-edit">
+            <input type="hidden" id="id" name="id"/>
+	        <div class="form-group">
+	            <label for="nom">Nom</label>
+	            <input type="text" class="form-control" id="nom" name="nom" onblur="verifString(this)" required >
+	        </div>
+	        <div class="form-group">
+	            <label for="prenom">prenom</label>
+	            <input type="text" class="form-control" id="prenom" name="prenom" onblur="verifString(this)" required >
+	        </div>
+	        <div class="form-group gsm" id="0">
+	            <label for="numero">Numero</label>
+	            <input type="text" class="form-control" id="numero" name="numero[]" onblur="verifNum(this);" required >
+	        </div>
+            <div class="float-left">
+                <button type="button" onclick="ajouterInput();event.preventDefault()" id="ajoutInput" class="btn btn-success">Ajouter une ligne</button>
+                <button type="button" onclick="deleteInput();event.preventDefault()" id="deletInput" class="btn btn-danger">Supprimer une ligne</button>
+            </div>
+            <div class="float-right">
+    	        <button type="submit" onclick="contact.saveForm();event.preventDefault()" class="btn btn-primary" id="bEnregistrer" >Enregistrer</button>
+                <button type="button" onclick="contact.cancelForm();" class="btn btn-secondary">Annuler</button>
+            </div>
+        </form>
+
+	</div>
+	<br/><br/><br/>
+	<footer>
+		<!-- Copyright -->
+		<div class="footer-copyright text-center py-3">© 2019 Copyright:
+			<a href="https://lmoury.com"> LMoury.com</a>
+		</div>
+		<!-- Copyright -->
+	</footer>
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="assets/js/contact.js"></script>
+	<script src="assets/js/app.js"></script>
+	<script src="assets/js/form.js"></script>
+</body>
+</html>

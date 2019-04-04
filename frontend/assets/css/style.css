@@ -1,0 +1,53 @@
+
+p::first-letter {
+  color: red;
+  font-size: 130%;
+}body {
+    background-color: rgb(245,245,245);
+}
+.active a {
+    color: rgb(125, 197, 255)!important;
+}
+#contact-edit, #deletInput {
+    display: none;
+}
+.alert {
+	margin-bottom: 0;
+}
+.btn-danger {
+    margin-right: 12px;
+}
+table {
+    background: white;
+}
+@media (min-width: 668px) {
+    .table-responsive {
+    	display: inline-table;
+    }
+}
+.list-unstyled, .erreur {
+	color: red;
+}
+
+footer {
+	background: #343a40 !important;
+	color: white;
+	position: absolute;
+	width: 100%;
+}
+
+input:required {
+  box-shadow: none;
+}
+
+button:disabled {
+    cursor: no-drop;
+}
+
+.container {
+	min-height: 66vh;
+}
+
+table tbody tr td::first-letter {
+  text-transform: uppercase;
+}
